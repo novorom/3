@@ -3,14 +3,22 @@ import { NextResponse } from 'next/server'
 export const revalidate = 3600 // Revalidate every hour
 
 export async function GET() {
-  const baseUrl = 'https://cersanit-shop.ru'
+  const baseUrl = 'https://cersanit-spb.online'
   
   // Fetch products to generate URLs
-  const productsData = await fetch('https://cersanit-shop.ru/api/products', {
-    next: { revalidate: 3600 }
-  }).catch(() => ({ products: [] }))
-  
-  const products = productsData?.products || []
+  let products: any[] = []
+  try {
+    const response = await fetch(`${baseUrl}/api/products`, {
+      next: { revalidate: 3600 }
+    })
+    if (response.ok) {
+      const data = await response.json()
+      products = data.products || []
+    }
+  } catch (error) {
+    console.error('Failed to fetch products for sitemap:', error)
+    products = []
+  }
   
   // Static pages
   const staticPages = [
@@ -18,6 +26,7 @@ export async function GET() {
     { url: '/catalog', priority: 0.9, changefreq: 'daily' },
     { url: '/about', priority: 0.7, changefreq: 'monthly' },
     { url: '/delivery', priority: 0.6, changefreq: 'monthly' },
+    { url: '/spb', priority: 0.8, changefreq: 'monthly' },
   ]
   
   // Generate XML
