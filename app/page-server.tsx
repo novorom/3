@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     title: 'Cersanit Shop — Керамическая плитка в СПб',
     description: 'Официальный магазин керамической плитки Cersanit в Санкт-Петербурге',
     siteName: 'Cersanit Shop',
+    images: [
+      {
+        url: 'https://cersanit-shop.ru/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Cersanit Shop - Керамическая плитка',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -31,6 +39,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
   },
 }
 
@@ -62,4 +77,3 @@ export default function HomePage() {
     </>
   )
 }
-

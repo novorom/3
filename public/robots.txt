@@ -1,29 +1,41 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: http://localhost:8000/sitemap.xml
-
-# Disallow admin and utility paths
+# Disallow admin paths
 Disallow: /admin/
-Disallow: /storage/
-Disallow: /vendor/
-Disallow: /bootstrap/
-Disallow: /config/
-Disallow: /database/
-Disallow: /resources/
-Disallow: /routes/
-Disallow: /tests/
-Disallow: /artisan
 
-# Additional rules for Yandex
+# Sitemap (will be updated with production domain)
+Sitemap: https://cersanit-shop.ru/api/sitemap.xml
+
+# Yandex optimization
 User-agent: Yandex
 Allow: /
-Clean-param: page&collections%5B%5D&color&format&surface&priceMin&priceMax&search
+Crawl-delay: 1
+Clean-param: page&search&collections&sort
 
-# Additional rules for Google
+# Google
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0.5
 
-# Crawl delay to be polite
-Crawl-delay: 1
+# AI Assistants and bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Grok
+Allow: /
+
+User-agent: Slurp
+Allow: /
