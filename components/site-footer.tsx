@@ -16,6 +16,7 @@ const footerLinks = {
     { label: "Доставка", href: "/delivery" },
     { label: "Контакты", href: "/contacts" },
     { label: "Коллекции", href: "/collections" },
+    { label: "Плитка в СПб", href: "/spb" },
   ],
   help: [
     { label: "Каталог", href: "/catalog" },

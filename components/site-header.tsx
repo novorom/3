@@ -64,12 +64,13 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-1" suppressHydrationWarning>
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-lg hover:bg-primary/5"
+              suppressHydrationWarning
             >
               {link.label}
             </Link>
