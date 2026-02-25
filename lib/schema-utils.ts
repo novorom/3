@@ -61,7 +61,7 @@ export interface LocalBusinessSchema extends OrganizationSchema {
   areaServed: string[]
   openingHoursSpecification: Array<{
     '@type': string
-    dayOfWeek: string
+    dayOfWeek: string | string[]
     opens: string
     closes: string
   }>
@@ -73,8 +73,8 @@ export function createOrganizationSchema(): OrganizationSchema {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Cersanit Shop',
-    url: 'https://cersanit-shop.ru',
-    logo: 'https://cersanit-shop.ru/logo.png',
+    url: 'https://cersanit-spb.online',
+    logo: 'https://cersanit-spb.online/logo.png',
     description: 'Официальный магазин керамической плитки Cersanit',
     address: {
       '@type': 'PostalAddress',
