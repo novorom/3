@@ -12,17 +12,17 @@ export const metadata: Metadata = {
   title: "Cersanit Shop — Керамическая плитка и керамогранит",
   description:
     "Официальный магазин керамической плитки Cersanit. Большой выбор керамогранита, мозаики и ступеней. Доставка по всей России.",
-  metadataBase: new URL('https://cersanit-shop.ru'),
+  metadataBase: new URL('https://cersanit-spb.online'),
   alternates: {
-    canonical: 'https://cersanit-shop.ru',
+    canonical: 'https://cersanit-spb.online',
     languages: {
-      'ru-RU': 'https://cersanit-shop.ru',
+      'ru-RU': 'https://cersanit-spb.online',
     },
   },
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    url: 'https://cersanit-shop.ru',
+    url: 'https://cersanit-spb.online',
     siteName: 'Cersanit Shop',
     title: 'Cersanit Shop — Керамическая плитка в Санкт-Петербурге',
     description: 'Официальный магазин керамической плитки и керамогранита Cersanit',
@@ -38,12 +38,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-video-preview': -1,
     },
-    'yandex': 'all',
-    'yandex-verification': '',
   },
   verification: {
-    google: 'verification-code-here',
-    yandex: 'verification-code-here',
+    google: '',
   },
   authors: [{ name: 'Cersanit' }],
   creator: 'Cersanit Shop',
@@ -66,10 +63,10 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
-        {/* Yandex Verification */}
+        {/* Yandex Verification - add code after registration */}
         <meta name="yandex-verification" content="" />
         
-        {/* Google Verification */}
+        {/* Google Verification - add code after registration */}
         <meta name="google-site-verification" content="" />
         
         {/* Locale Configuration */}
@@ -82,7 +79,7 @@ export default function RootLayout({
         
         {/* Additional SEO */}
         <meta name="revisit-after" content="7 days" />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="robots" content="index, follow" />
       </head>
       <body className={`${inter.className} antialiased`}>
         <ProductsProvider>
