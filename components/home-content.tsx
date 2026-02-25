@@ -77,7 +77,7 @@ export function HomeContent() {
             </Link>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-            {categories.map((category) => (
+            {categories.map((category, idx) => (
               <Link
                 key={category.id}
                 href={`/catalog?product_type=${encodeURIComponent(category.name)}`}
@@ -89,6 +89,8 @@ export function HomeContent() {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 50vw, 25vw"
+                  priority={idx < 2}
+                  loading={idx < 2 ? "eager" : "lazy"}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
@@ -156,7 +158,7 @@ export function HomeContent() {
             </Link>
           </div>
           <div className="flex gap-4 lg:gap-6 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
-            {collections.map((collection) => (
+            {collections.map((collection, idx) => (
               <Link
                 key={collection.id}
                 href={`/catalog?collection=${collection.slug}`}
@@ -169,6 +171,8 @@ export function HomeContent() {
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="256px"
+                    priority={idx < 3}
+                    loading={idx < 3 ? "eager" : "lazy"}
                   />
                 </div>
                 <div className="p-4">
@@ -222,6 +226,63 @@ export function HomeContent() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Local SEO Section */}
+      <section className="py-16 lg:py-20 bg-muted/30">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-6 text-balance">
+                Все виды керамической плитки для Санкт-Петербурга
+              </h2>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">•</span>
+                  <span>Большой выбор плитки для ванной комнаты в СПб и Ленинградской области</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">•</span>
+                  <span>Керамогранит и плитка для кухни - доступные цены в Санкт-Петербурге</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">•</span>
+                  <span>Остатки склада в Янино позволяют быстро доставить в СПб</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">•</span>
+                  <span>Профессиональная консультация специалистов Cersanit</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">•</span>
+                  <span>Гибкие условия доставки - работаем с частными лицами и организациями</span>
+                </li>
+              </ul>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-6 bg-card rounded-xl border border-border">
+                <div className="text-3xl font-bold text-primary mb-2">750+</div>
+                <div className="text-sm font-medium text-foreground">Товаров на складе</div>
+                <div className="text-xs text-muted-foreground mt-1">в Янино, СПб</div>
+              </div>
+              <div className="p-6 bg-card rounded-xl border border-border">
+                <div className="text-3xl font-bold text-primary mb-2">1-2 дня</div>
+                <div className="text-sm font-medium text-foreground">Доставка</div>
+                <div className="text-xs text-muted-foreground mt-1">По Санкт-Петербургу</div>
+              </div>
+              <div className="p-6 bg-card rounded-xl border border-border">
+                <div className="text-3xl font-bold text-primary mb-2">100%</div>
+                <div className="text-sm font-medium text-foreground">Оригинал</div>
+                <div className="text-xs text-muted-foreground mt-1">Сертифицированная плитка</div>
+              </div>
+              <div className="p-6 bg-card rounded-xl border border-border">
+                <div className="text-3xl font-bold text-primary mb-2">24/7</div>
+                <div className="text-sm font-medium text-foreground">Помощь</div>
+                <div className="text-xs text-muted-foreground mt-1">По телефону и Telegram</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

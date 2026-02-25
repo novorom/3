@@ -46,6 +46,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{
           __html: getJsonLdScript(organizationSchema),
         }}
+        suppressHydrationWarning
       />
       {/* LocalBusiness Schema.org JSON-LD */}
       <script
@@ -53,6 +54,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{
           __html: getJsonLdScript(localBusinessSchema),
         }}
+        suppressHydrationWarning
       />
       <div className="flex flex-col">
         <Suspense fallback={<div className="min-h-screen bg-background" />}>
